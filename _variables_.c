@@ -1,4 +1,4 @@
-#include "hsh.h"
+#include "main.h"
 
 /**
  * expand - a function that performs variable expansion on the current set of tokens
@@ -108,7 +108,7 @@ char **expand_vars(info_t *shellInfo, char ***tokptr)
 		}
 		if (val)
 		{
-			val_len = _strlen(val);
+i			val_len = _strlen(val);
 			**tokptr = malloc(sizeof(char) * (
 					pos + val_len + _strlen(tok + pos + var_len) + 1
 					));
