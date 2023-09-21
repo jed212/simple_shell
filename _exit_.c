@@ -1,33 +1,18 @@
-#include "builtin_functions.h"
+#include "shell.h"
 
 /**
-  * _exit_ - a function that exits from shell
-  * @shellInfo: the arguments
-  * Return: returns an integer
-  */
-
-int _exit_(info_t *shellInfo)
+ * exit_builtin_ - a function that handles the exit builtin command in shell
+ * @token_arr: an array of strings representing the command and its arguments
+ * Return: 1 on success 0 on failure
+ */
+int exit_builtin_(char **token_arr)
 {
-	char **args;
-	**args = shellInfo->tokens + 1;
-
-	if (*args)
+	if (token_arr[1] != NULL)
 	{
-		if (_isnumber(*args))
-		{
-			shellInfo->status = atoi(*args);
-		}
-		else
-		{
-			perrorl_default(*shellInfo->argv, shellInfo->lineno, *args,
-					*shellInfo->tokens, "Illegal number", NULL);
-			shellInfo->status = 2;
-			return (shellInfo->status);
-		}
+		exit(atoi(token_arr[1]));
 	}
-	if (shellInfo->file)
+	else
 	{
-		close(shellInfo->fileno);
+		return (EXIT_CODE);
 	}
-	exit(shellInfo->status);
 }
