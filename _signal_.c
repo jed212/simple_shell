@@ -1,10 +1,16 @@
-#include "main.h"
+#include "shell.h"
+
 /**
- *sig_int - reprompts
- *@signal: signal passed
+ *_sig_int_handler_ - handle signals
+ *@signal: signal
+ *Return: nothing
  */
-void sig_int(int signal)
+void _sig_int_handler_(int signal)
 {
-	fflush(STDIN_FILENO);
-	write(STDERR_FILENO, "\n$ ", 3);
+	if (signal == SIGINT)
+	{
+		write(STDOUT_FILENO, "\n", 1);
+		prompt();											fflush(stdout);
+			
+	}
 }
