@@ -4,26 +4,26 @@
  *_is_builtin_ - all it does
  **
  *Description: describe all it does
- *@array_of_tokens: command array
+ *@token_arr: command array
  *Return: 1 if success 0 if failure
  */
-int _is_builtin_(char **array_of_tokens)
+int _is_builtin_(char **token_arr)
 {
 	int bltn_index;
 	const struct bltn_cmmnd bltns[] = {
-		{"env", _env_builtin},
-		{"exit", _exit_builtin},
+		{"env", _env_},
+		{"exit", exit_builtin_},
 		{NULL, NULL}
 	};
 
-	if (array_of_tokens == NULL)					
+	if (token_arr == NULL)
 		return (0);
-	if (array_of_tokens[0] == NULL)
+	if (token_arr[0] == NULL)
 		return (0);
 
-	for (bltn_index = 0; bltns[bltn_index].name != NULL;
+	for (bltn_index = 0; bltns[bltn_index].n != NULL;
 			bltn_index++)
-		if (strcmp(array_of_tokens[0],bltns[bltn_index].name) == 0)
+		if (strcmp(token_arr[0], bltns[bltn_index].n) == 0)
 			return (1);
 	return (0);
 }
@@ -33,30 +33,30 @@ int _is_builtin_(char **array_of_tokens)
  **
  *Description: long description
  **
- *@array_of_tokens: command array
+ *@token_arr: command array
  **
  *Return: 1 if success 0 if failure
  */
-int _bltn_handler_(char **array_of_tokens)
+int _bltn_handler_(char **token_arr)
 {
 	int bltn_index;
 	const struct bltn_cmmnd bltns[] = {
-		{"env", _env_builtin},
-		{"exit", _exit_builtin},
+		{"env", _env_},
+		{"exit", exit_builtin_},
 		{NULL, NULL}
 	};
 
-	if (array_of_tokens == NULL)
+	if (token_arr == NULL)
 		return (0);
-	if (array_of_tokens[0] == NULL)
+	if (token_arr[0] == NULL)
 		return (0);
 
-	for (bltn_index = 0; bltns[bltn_index].name != NULL;
+	for (bltn_index = 0; bltns[bltn_index].n != NULL;
 			bltn_index++)
 	{
-		if (strcmp(array_of_tokens[0],
-					bltns[bltn_index].name) == 0)
-			return (bltns[bltn_index].function(array_of_tokens));
+		if (strcmp(token_arr[0],
+					bltns[bltn_index].n) == 0)
+			return (bltns[bltn_index].function(token_arr));
 	}
 	return (0);
 }

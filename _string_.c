@@ -25,21 +25,22 @@ void _rev_str_(char *str)
 }
 
 /**
- *  * __itoa__ - converts int to a string
- * @cmmnd_nmb: number to convert
+ ** __itoa__ - converts int to a string
+ **Description - converts integer to string
+ * @cmd_num: number to convert
  **
  *Return: converted integer
  **/
-char *__itoa__(size_t cmmnd_nmb)
+char *__itoa__(size_t cmd_num)
 {
 	char *str = malloc(sizeof(char) * (32 + 1));
 	int i = 0;
 
 
 	do {
-		str[i++] = cmmnd_nmb % 10 + '0';
-		cmmnd_nmb /= 10;
-	} while (cmmnd_nmb > 0);
+		str[i++] = cmd_num % 10 + '0';
+		cmd_num /= 10;
+	} while (cmd_num > 0);
 	str[i] = '\0';
 	_rev_str_(str);
 

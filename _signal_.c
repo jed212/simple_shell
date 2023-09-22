@@ -10,7 +10,8 @@ void _sig_int_handler_(int signal)
 	if (signal == SIGINT)
 	{
 		write(STDOUT_FILENO, "\n", 1);
-		prompt();											fflush(stdout);
-			
+		display_prompt();
+		fflush(stdout);
+
 	}
 }

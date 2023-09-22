@@ -1,21 +1,21 @@
 #include "shell.h"
 
 /**
- *  * _dgt_cntr_ - counts the digits
- *   * @cmmnd_nmb:  number to be counted
- *    *
- *     * Return: number of the digits
- *      */
-int _dgt_cntr_(size_t cmmnd_nmb)
+ * _counter_ - counts the digits
+ * @cmd_num:  number to be counted
+ * *
+ * Return: number of the digits
+ */
+int _counter_(size_t cmd_num)
 {
 	int dgt_cnt = 0;
 
 
-	if (cmmnd_nmb == 0)
+	if (cmd_num == 0)
 		return (1);
-	while (cmmnd_nmb != 0)
+	while (cmd_num != 0)
 	{
-		cmmnd_nmb /= 10;
+		cmd_num /= 10;
 		dgt_cnt++;
 	}
 

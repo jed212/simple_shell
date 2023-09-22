@@ -17,7 +17,8 @@ void _free_listtoken_(list_token_t **head)
 	if (head == NULL)
 		return;
 
-	while (*head != NULL)					{
+	while (*head != NULL)
+	{
 		node = *head;
 		*head = node->next;
 		free(node->token);

@@ -37,7 +37,7 @@ list_token_t *_add_nodetoken_end_(list_token_t **head, char *token)
 		while (last_node->next != NULL)
 			last_node = last_node->next;
 
-	
+
 		last_node->next = new_node;
 	}
 
