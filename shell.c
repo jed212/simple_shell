@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * main - Entry point of the program
+ * main - main entry point of the program
  * @ac: unused command line argument count
  * @arvs: unused command line argument
  * @envp: unused environment variable
@@ -17,7 +17,7 @@ int main(__attribute((unused)) int ac,
 	char *delimiter, *input;
 	size_t malloc_bytes_allocated, cmd_num;
 
-	signal(SIGINT, sigint_handler);
+	signal(SIGINT, _sig_int_handler_);
 	input = NULL;
 	malloc_bytes_allocated = cmd_num = 0;
 	delimiter = " \n";
@@ -25,14 +25,14 @@ int main(__attribute((unused)) int ac,
 	{
 		cmd_num++;
 		_getline_(&input, &malloc_bytes_allocated, status);
-		token_arr = array_maker(input, delimiter);
+		token_arr = _array_maker_(input, delimiter);
 		if (!(*token_arr))
 			status = 0;
 		else
 		{
-			if (is_builtin(token_arr))
+			if (_is_builtin_(token_arr))
 			{
-				if (builin_handler(token_arr) == EXIT_CODE)
+				if (_bltn_handler_(token_arr) == EXIT_CODE)
 				{
 					_free_main(token_arr, input);
 					exit(status);

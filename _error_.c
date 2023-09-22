@@ -11,10 +11,10 @@
 int error_not_found(char **arvs, char **token_arr, size_t cmd_num)
 {
 	char *error_str;
-	char *cmd_num_str = _itoa(cmd_num);
+	char *cmd_num_str = __itoa__(cmd_num);
 
 	int size = (strlen(arvs[0]) + (2 * strlen(": ")) +
-			digit_counter(cmd_num) + strlen(token_arr[0]) +
+			_counter_(cmd_num) + strlen(token_arr[0]) +
 			strlen(": not found\n") + 1);
 
 	malloc_char_(&error_str, size, "error_not_found Error: malloc error");

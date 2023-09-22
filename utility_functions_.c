@@ -23,7 +23,7 @@ char *malloc_char_(char **string, size_t size_of_malloc, char *error_msg)
 /**
  * malloc_array_ - function that allocates memory for an array of strings
  *
- * @array: reference to the pointer where allocated arr is stored
+ * @arr: reference to the pointer where allocated arr is stored
  * @size_of_malloc: size to allocate
  * @error_msg: message to display in error
  *

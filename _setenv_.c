@@ -117,6 +117,6 @@ int _setenv_(const char *n, const char *v, int overwrite)
 	if (name_exists(n) != -1)
 		set_env_exists(env_var, envar_len, n, overwrite);
 	else
-		doesnt_exist(env_var, envar_len, _env_length());
+		doesnt_exist(env_var, envar_len, _env_len());
 	return (0);
 }

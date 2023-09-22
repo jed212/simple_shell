@@ -11,14 +11,14 @@
 #include <stddef.h>
 #include <sys/stat.h>
 /**
- *struct _bltn_cmmnd - returns a pointer to a string
+ *struct bltn_cmmnd - this returns a pointer to a string
  *Description - returns a pointer to string
  *@n: First member
  *@function: Second member
  **
  ** Description: Longer description
  */
-struct _bltn_cmmnd
+struct bltn_cmmnd
 {
 	char *n;
 	int (*function)(char **token_arr);

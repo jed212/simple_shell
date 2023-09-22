@@ -20,14 +20,14 @@ int valid_path_(char *file_name)
 			return (1);
 		}
 	}
-	else if (len >= strlen("/"))
+	if (len >= strlen("/"))
 	{
 		if (strncmp(file_name, "/", strlen("/")) == 0)
 		{
 			return (1);
 		}
 	}
-	else if (len >= strlen("./"))
+	if (len >= strlen("./"))
 	{
 		if (strncmp(file_name, "./", strlen("./")) == 0)
 			return (1);
@@ -76,7 +76,7 @@ char *_which_(char *file_name)
 	path_var = _getenv_("PATH");
 	if (path_var != NULL)
 	{
-		token_arr = array_maker(path_var, delimiter);
+		token_arr = _array_maker_(path_var, delimiter);
 		if (token_arr != NULL)
 		{
 			for (token_indx = 0; token_arr[token_indx];

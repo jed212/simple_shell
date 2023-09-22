@@ -13,7 +13,7 @@ int _unsetenv_(const char *n)
 	char **new_env;
 
 	new_env = NULL;
-	env_indx = _env_length();
+	env_indx = _env_len();
 	found = name_exists(n);
 	if (found != -1)
 	{
