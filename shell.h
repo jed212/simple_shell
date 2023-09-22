@@ -1,5 +1,6 @@
 #ifndef SHELL_H
 #define SHELL_H
+
 #define EXIT_CODE 1080
 
 #include <stdio.h>
@@ -10,6 +11,7 @@
 #include <sys/wait.h>
 #include <stddef.h>
 #include <sys/stat.h>
+
 /**
  *struct bltn_cmmnd - this returns a pointer to a string
  *Description - returns a pointer to string
@@ -23,24 +25,25 @@ struct bltn_cmmnd
 	char *n;
 	int (*function)(char **token_arr);
 };
+
 void display_prompt(void);
-void _sig_int_handler_(int signal);
-ssize_t _getline_(char **input, size_t *malloc_bytes_allocated, int status);
 char **_array_maker_(char *input, char *delimiter);
+void _sig_int_handler_(int signal);
 int _fork(char *cmd, char **token_arr);
 char *_which_(char *file_name);
+ssize_t _getline_(char **input, size_t *malloc_bytes_allocated, int status);
 int print_env(void);
+char *malloc_char_(char **string, size_t size_of_malloc, char *error_msg);
 char *_getenv_(const char *n);
 int _setenv_(const char *n, const char *v,  int overwrite);
 int _unsetenv_(const char *n);
-char *malloc_char_(char **string, size_t size_of_malloc, char *error_msg);
 char **malloc_array_(char **array, size_t size_of_malloc, char *error_msg);
 int cpy_arr(char **dest, char **src);
 int name_exists(const char *n);
 int _env_len(void);
-void _free_which(char **path_var, char **token_arr);
 void _free_main(char **token_arr, char *input);
 void _rev_str_(char *str);
+void _free_which(char **path_var, char **token_arr);
 char *__itoa__(size_t cmd_num);
 int _counter_(size_t cmd_num);
 int error_not_found(char **arvs, char **token_arr, size_t cmd_num);
