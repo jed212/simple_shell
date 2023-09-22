@@ -11,12 +11,12 @@
 #include <stddef.h>
 #include <sys/stat.h>
 /**
- *  * struct builtin_command - Short description
- *   * @name: First member
- *    * @function: Second member
- *     *
- *      * Description: Longer description
- *       */
+ *struct _bltn_cmmnd - Short description
+ *@name: First member
+ *@function: Second member
+ **
+ ** Description: Longer description
+ */
 struct bltn_cmmnd
 {
 	char *name;
