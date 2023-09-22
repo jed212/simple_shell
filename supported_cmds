@@ -1,7 +1,7 @@
 /bin/ls -la /tmp
 echo "Hello"
 ls -la
-/bin/l
+/bin/ls
 pwd
 env
 id
